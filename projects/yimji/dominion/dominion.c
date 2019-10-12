@@ -890,7 +890,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
         return 0;
 
     case baron:
-        baronCardEffect(state, currentPlayer);
+        baronCardEffect(choice1, state, currentPlayer);
         /*state->numBuys++;//Increase buys by 1!
         if (choice1 > 0) { //Boolean true or going to discard an estate
             int p = 0;//Iterator for hand!
@@ -955,7 +955,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
         return 0;
 
     case minion:
-        minionCardEffect(state, handPos, currentPlayer);
+        minionCardEffect(i, j, tate, handPos, currentPlayer);
         /*//+1 action
         state->numActions++;
 
@@ -1029,7 +1029,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
         return 0;
 
     case tribute:
-        tributeCardEffect(state, tributeRevealedCards, nextPlayer);
+        tributeCardEffect(i, state, tributeRevealedCards, nextPlayer);
         /*if ((state->discardCount[nextPlayer] + state->deckCount[nextPlayer]) <= 1) {
             if (state->deckCount[nextPlayer] > 0) {
                 tributeRevealedCards[0] = state->deck[nextPlayer][state->deckCount[nextPlayer]-1];
@@ -1089,7 +1089,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
         return 0;*/
 
     case ambassador:
-        ambassadorCardEffect(card, choice1, choice2, choice3, state, handPos, bonus, currentPlayer, nextPlayer);
+        ambassadorCardEffect(i, j, choice1, choice2, state, handPos, currentPlayer);
         /*j = 0;		//used to check if player has enough cards to discard
 
         if (choice2 > 2 || choice2 < 0)
@@ -1282,7 +1282,7 @@ int mineCardEffect(int i, int j, int choice1, int choice2, struct gameState *sta
         return -1;
     }
 
-    if ( (getCost(j + 3) > getCost(choice2) )
+    if ( (getCost(j + 3) > getCost(choice2) ))
     {
         return -1;
     }
@@ -1305,7 +1305,7 @@ int mineCardEffect(int i, int j, int choice1, int choice2, struct gameState *sta
     return 0;
 }
 
-int ambassadorCardEffect(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus, int currentPlayer, int nextPlayer)
+int ambassadorCardEffect(int i, int j, int choice1, int choice2, struct gameState *state, int handPos, int currentPlayer)
 {
     j = 0;		//used to check if player has enough cards to discard
 
@@ -1365,7 +1365,7 @@ int ambassadorCardEffect(int card, int choice1, int choice2, int choice3, struct
         return 0;
 }
 
-int tributeCardEffect(struct gameState *state, int *tributeRevealedCards, int nextPlayer)
+int tributeCardEffect(int i, struct gameState *state, int *tributeRevealedCards, int nextPlayer)
 {
 if ((state->discardCount[nextPlayer] + state->deckCount[nextPlayer]) <= 1) {
             if (state->deckCount[nextPlayer] > 0) {
@@ -1426,7 +1426,7 @@ if ((state->discardCount[nextPlayer] + state->deckCount[nextPlayer]) <= 1) {
         return 0;
 }
 
-int minionCardEffect(struct gameState *state, int handPos, int currentPlayer)
+int minionCardEffect(int i, int j, struct gameState *state, int handPos, int currentPlayer)
 {
 //+1 action
         state->numActions++;
@@ -1478,7 +1478,7 @@ int minionCardEffect(struct gameState *state, int handPos, int currentPlayer)
         return 0;
 }
 
-int baronCardEffect(struct gameState *state, int currentPlayer)
+int baronCardEffect(int choice1, struct gameState *state, int currentPlayer)
 {
     state->numBuys++;//Increase buys by 1!
         if (choice1 > 0) { //Boolean true or going to discard an estate
