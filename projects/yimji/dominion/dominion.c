@@ -1293,12 +1293,12 @@ int mineCardEffect(int i, int j, int choice1, int choice2, struct gameState *sta
     discardCard(handPos, currentPlayer, state, 0);
 
     //discard trashed card
-    for (i = 0; i < state->handCount[currentPlayer]; i++)
+    for (i = 1; i < state->handCount[currentPlayer]; i++)
     {
         if (state->hand[currentPlayer][i] == j)
         {
             discardCard(i, currentPlayer, state, 0);
-            break;
+            //break;
         }
     }
 
