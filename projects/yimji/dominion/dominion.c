@@ -1365,7 +1365,7 @@ int ambassadorCardEffect(int i, int j, int choice1, int choice2, struct gameStat
         return 0;
 }
 
-int tributeCardEffect(int i, struct gameState *state, int *tributeRevealedCards, int, currentPlayer, int nextPlayer)
+int tributeCardEffect(int i, struct gameState *state, int *tributeRevealedCards, int currentPlayer, int nextPlayer)
 {
 if ((state->discardCount[nextPlayer] + state->deckCount[nextPlayer]) <= 1) {
             if (state->deckCount[nextPlayer] > 0) {
