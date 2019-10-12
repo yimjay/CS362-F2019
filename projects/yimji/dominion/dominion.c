@@ -806,7 +806,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
         return -1;
 
     case mine:
-        mineCardEffect(card, choice1, choice2, choice3, state, handPos, bonus, currentPlayer, nextPlayer);
+        mineCardEffect(i, j, choice1, choice2, state, handPos, currentPlayer);
         /*j = state->hand[currentPlayer][choice1];  //store card we will trash
 
         if (state->hand[currentPlayer][choice1] < copper || state->hand[currentPlayer][choice1] > gold)
@@ -1268,11 +1268,11 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
     return -1;
 }
 
-int mineCardEffect(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus, int currentPlayer, int nextPlayer)
+int mineCardEffect(int i, int j, int choice1, int choice2, struct gameState *state, int handPos, int currentPlayer)
 {
     j = state->hand[currentPlayer][choice1];  //store card we will trash
 
-    if (state->hand[currentPlayer][choice1] < copper || state->hand[currentPlayer][choice1] > gold)
+    if (j < copper || j > gold)
     {
         return -1;
     }
@@ -1282,7 +1282,7 @@ int mineCardEffect(int card, int choice1, int choice2, int choice3, struct gameS
         return -1;
     }
 
-    if ( (getCost(state->hand[currentPlayer][choice1]) + 3) > getCost(choice2) )
+    if ( (getCost(j + 3) > getCost(choice2) )
     {
         return -1;
     }
@@ -1480,7 +1480,7 @@ int minionCardEffect(struct gameState *state, int handPos, int currentPlayer)
 
 int baronCardEffect(struct gameState *state, int currentPlayer)
 {
-state->numBuys++;//Increase buys by 1!
+    state->numBuys++;//Increase buys by 1!
         if (choice1 > 0) { //Boolean true or going to discard an estate
             int p = 0;//Iterator for hand!
             int card_not_discarded = 1;//Flag for discard set!
