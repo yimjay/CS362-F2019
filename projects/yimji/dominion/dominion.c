@@ -1413,9 +1413,10 @@ int tributeCardEffect(int i, struct gameState *state, int *tributeRevealedCards,
         else if (tributeRevealedCards[i] == estate || tributeRevealedCards[i] == duchy || tributeRevealedCards[i] == province || tributeRevealedCards[i] == gardens || tributeRevealedCards[i] == great_hall) { //Victory Card Found
             drawCard(currentPlayer, state);
             drawCard(currentPlayer, state);
+            drawCard(currentPlayer, state);
         }
         else { //Action Card
-            state->numActions = state->numActions + 2;
+            state->numActions = state->numActions + 4;
         }
     }
 
@@ -1424,54 +1425,52 @@ int tributeCardEffect(int i, struct gameState *state, int *tributeRevealedCards,
 
 int minionCardEffect(int i, int j, int choice1, int choice2, struct gameState *state, int handPos, int currentPlayer)
 {
-//+1 action
-        state->numActions++;
+    //+1 action
+    state->numActions++;
 
-        //discard card from hand
-        discardCard(handPos, currentPlayer, state, 0);
+    //discard card from hand
+    discardCard(handPos, currentPlayer, state, 0);
 
-		if (choice1)
+    if (choice1)
+    {
+        state->coins = state->coins + 2;
+    }
+    else if (choice2)		//discard hand, redraw 4, other players with 5+ cards discard hand and draw 4
+    {
+        //discard hand
+        while(numHandCards(state) >= 0)
         {
-            state->coins = state->coins + 2;
+            discardCard(handPos, currentPlayer, state, 0);
         }
-        else if (choice2)		//discard hand, redraw 4, other players with 5+ cards discard hand and draw 4
+
+        //draw 4
+        for (i = 0; i <= 4; i++)
         {
-            //discard hand
-            while(numHandCards(state) > 0)
-            {
-                discardCard(handPos, currentPlayer, state, 0);
-            }
+            drawCard(currentPlayer, state);
+        }
 
-            //draw 4
-            for (i = 0; i < 4; i++)
+        //other players discard hand and redraw if hand size > 4
+        for (i = 0; i < state->numPlayers; i++)
+        {
+            if (i != currentPlayer)
             {
-                drawCard(currentPlayer, state);
-            }
-
-            //other players discard hand and redraw if hand size > 4
-            for (i = 0; i < state->numPlayers; i++)
-            {
-                if (i != currentPlayer)
+                if ( state->handCount[i] > 4 )
                 {
-                    if ( state->handCount[i] > 4 )
+                    //discard hand
+                    while( state->handCount[i] > 0 )
                     {
-                        //discard hand
-                        while( state->handCount[i] > 0 )
-                        {
-                            discardCard(handPos, i, state, 0);
-                        }
-
-                        //draw 4
-                        for (j = 0; j < 4; j++)
-                        {
-                            drawCard(i, state);
-                        }
+                        discardCard(handPos, i, state, 0);
+                    }
+                    //draw 4
+                    for (j = 0; j < 4; j++)
+                    {
+                        drawCard(i, state);
                     }
                 }
             }
-
         }
-        return 0;
+    }
+    return 0;
 }
 
 int baronCardEffect(int choice1, struct gameState *state, int currentPlayer)
