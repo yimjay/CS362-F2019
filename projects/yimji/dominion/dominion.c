@@ -955,7 +955,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
         return 0;
 
     case minion:
-        minionCardEffect(i, j, tate, handPos, currentPlayer);
+        minionCardEffect(i, j, choice1, choice2, state, handPos, currentPlayer);
         /*//+1 action
         state->numActions++;
 
@@ -1029,7 +1029,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
         return 0;
 
     case tribute:
-        tributeCardEffect(i, state, tributeRevealedCards, nextPlayer);
+        tributeCardEffect(i, state, tributeRevealedCards, currentPlayer, nextPlayer);
         /*if ((state->discardCount[nextPlayer] + state->deckCount[nextPlayer]) <= 1) {
             if (state->deckCount[nextPlayer] > 0) {
                 tributeRevealedCards[0] = state->deck[nextPlayer][state->deckCount[nextPlayer]-1];
@@ -1365,7 +1365,7 @@ int ambassadorCardEffect(int i, int j, int choice1, int choice2, struct gameStat
         return 0;
 }
 
-int tributeCardEffect(int i, struct gameState *state, int *tributeRevealedCards, int nextPlayer)
+int tributeCardEffect(int i, struct gameState *state, int *tributeRevealedCards, int, currentPlayer, int nextPlayer)
 {
 if ((state->discardCount[nextPlayer] + state->deckCount[nextPlayer]) <= 1) {
             if (state->deckCount[nextPlayer] > 0) {
@@ -1426,7 +1426,7 @@ if ((state->discardCount[nextPlayer] + state->deckCount[nextPlayer]) <= 1) {
         return 0;
 }
 
-int minionCardEffect(int i, int j, struct gameState *state, int handPos, int currentPlayer)
+int minionCardEffect(int i, int j, int choice1, int choice2, struct gameState *state, int handPos, int currentPlayer)
 {
 //+1 action
         state->numActions++;
