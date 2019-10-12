@@ -14,6 +14,8 @@ int cardEffect(int card, int choice1, int choice2, int choice3,
 int mineCardEffect(int card, int choice1, int choice2, int choice3,
                    struct gameState *state, int handPos, int *bonus,
                    int currentPlayer, int nextPlayer);
-
+int ambassadorCardEffect(int card, int choice1, int choice2, int choice3,
+                   struct gameState *state, int handPos, int *bonus,
+                   int currentPlayer, int nextPlayer);
 
 #endif
