@@ -18,5 +18,6 @@ int ambassadorCardEffect(int card, int choice1, int choice2, int choice3,
                    struct gameState *state, int handPos, int *bonus,
                    int currentPlayer, int nextPlayer);
 int tributeCardEffect(struct gameState *state, int *tributeRevealedCards, int nextPlayer);
+int minionCardEffect(struct gameState *state, int handPos, int currentPlayer);
 
 #endif
