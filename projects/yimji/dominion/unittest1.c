@@ -49,31 +49,6 @@ int main(){
         printf("TEST FAILED\n");
     }
 
-    //reset testG
-    memcpy(&testG, &G, sizeof(struct gameState));
-
-    //choose to not discard Estate card to gain an Estate card
-    choice1 = 0;
-    baronCardEffect(choice1, &testG, thisPlayer);
-
-    //test an Estate card were gained
-    printf("Testing if an Estate card was gained after not discarding one\n");
-    int cardNotFound = 1;
-    int p = 0;
-    int count = 0;
-    while(cardNotFound){
-        if(testG.hand[thisPlayer][p] == "estate"){
-            count++;
-            if(count < 2){
-                p++;
-            }else{
-                p++;
-                cardNotFound = 0;
-                printf("TEST PASSED\n");
-            }
-        }
-    }
-
     printf("\nTESTING COMPLETE FOR %s\n\n", TESTCARD);
 
     return 0;
