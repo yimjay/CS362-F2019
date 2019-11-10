@@ -62,15 +62,21 @@ int main(){
         printf("TEST FAILED\n");
     }
 
-    //reset test gameState
-    memcpy(&testG, &G, sizeof(struct gameState));
+    //play baron again with no estate card
+    baronCardEffect(choice1, &testG, thisPlayer);
+    printf("Test 4: Gain an estate card if no Estates in hand\n");
+    if(testG.handCount[0] == 10){
+        printf("TEST PASSED\n");
+    }else{
+        printf("TEST FAILED\n");
+    }
 
     //gain Estate card
     choice1 = 0;
     baronCardEffect(choice1, &testG, thisPlayer);
     int oldSupplyEstate = testG.supplyCount[estate];
 
-    printf("Test 4: Supply pile decreased after gaining an Estate\n");
+    printf("Test 5: Supply pile decreased after gaining an Estate\n");
     if(testG.supplyCount[estate] == oldSupplyEstate - 1){
         printf("TEST PASSED\n");
     }else{
