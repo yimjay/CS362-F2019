@@ -28,7 +28,7 @@ int main(){
     int numPlayers = 2;
     int thisPlayer = 0;
     struct gameState G, testG;
-    int k[10] = {baron, minion, ambassador, tribute, mine, adventurer, village, smithy, estate, council_room};
+    int k[10] = {baron, minion, ambassador, tribute, mine, adventurer, village, copper, estate, council_room};
 
     //initialize gameState
     initializeGame(numPlayers, k, seed, &G);
@@ -37,20 +37,36 @@ int main(){
 
     //copy current gameState to a test gameState
     memcpy(&testG, &G, sizeof(struct gameState));
+    choice1 = estate;
 
-    //test 2 choice1 cards were discarded
-    choice1 = 1;
-    choice2 = 2;
-
-    ambassadorCardEffect(i, j, choice1, choice2, &testG, handpos, thisPlayer);
-
-    printf("Test 1: 2 choice1 cards were discarded\n");
-    if(testG.supplyCount[testG.hand[thisPlayer][choice1]] == G.supplyCount[G.hand[thisPlayer][choice1]] + choice2){
+    printf("Test 1: Give error when choosing to trash a non-Treasure card\n");
+    if(mineCardEffect(i, j, choice1, choice2, &testG, handpos, thisPlayer) == -1){
         printf("TEST PASSED\n");
     }else{
         printf("TEST FAILED\n");
     }
 
+    memcpy(&testG, &G, sizeof(struct gameState));
+    choice1 = copper;
+    choice2 = gold;
+
+    printf("Test 2: Give error when attempting to buy a treasure worth more than 3 more than the trashed one\n");
+    if(mineCardEffect(i, j, choice1, choice2, &testG, handpos, thisPlayer) == -1){
+        printf("TEST PASSED\n");
+    }else{
+        printf("TEST FAILED\n");
+    }
+
+    memcpy(&testG, &G, sizeof(struct gameState));
+    choice1 = copper;
+    choice2 = silver;
+    mineCardEffect(i, j, choice1, choice2, &testG, handpos, thisPlayer)
+    printf("Test 3: Trash Copper to gain Silver. Hand counts should remain unchanged\n");
+    if(testG.handCount[0] == G.handCount[0]){
+        printf("TEST PASSED\n");
+    }else{
+        printf("TEST FAILED\n");
+    }
 
     printf("\nTESTING COMPLETE FOR %s\n\n", TESTCARD);
 
