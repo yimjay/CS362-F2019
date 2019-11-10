@@ -32,7 +32,7 @@ int main(){
     //initialize gameState
     initializeGame(numPlayers, k, seed, &G);
 
-    printf("This is the unit test for the %s card\n", TESTCARD);
+    printf("------------This is the unit test for the %s card\n", TESTCARD);
 
     //copy current gameState to a test gameState
     memcpy(&testG, &G, sizeof(struct gameState));
@@ -52,19 +52,29 @@ int main(){
     //reset testG
     memcpy(&testG, &G, sizeof(struct gameState));
 
-    //do not discard Estate card to gain an Estate card
+    //choose to not discard Estate card to gain an Estate card
     choice1 = 0;
     baronCardEffect(choice1, &testG, thisPlayer);
 
     //test an Estate card were gained
     printf("Testing if an Estate card was gained after not discarding one\n");
-    if(testG.coins == G.coins + 4){
-        printf("TEST PASSED\n");
-    }else{
-        printf("TEST FAILED\n");
+    int cardNotFound = 1;
+    int p = 0;
+    int count = 0;
+    while(cardNotFound){
+        if(testG.hand[thisPlayer][p] == "estate"){
+            count++;
+            if(count < 2){
+                p++;
+            }else{
+                p++;
+                cardNotFound = 0;
+                printf("TEST PASSED\n");
+            }
+        }
     }
 
-    printf("\n TESTING COMPLETE FOR &s\n\n", TESTCARD);
+    printf("\nTESTING COMPLETE FOR %s\n\n", TESTCARD);
 
     return 0;
 }

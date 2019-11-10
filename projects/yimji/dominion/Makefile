@@ -52,4 +52,4 @@ unittestresults: unittest1 unittest2 unittest3 unittest4 unittest5
 all: playdom player
 
 clean:
-	rm -f *.o playdom.exe playdom player player.exe  *.gcov *.gcda *.gcno *.so *.out testDrawCard testDrawCard.exe unittest1.exe unittest2.exe unittest3.exe unittest4.exe unittest5.exe dominion.gcda rngs.gcda
+	rm -f *.o playdom.exe playdom player player.exe  *.gcov *.gcda *.gcno *.so *.out testDrawCard testDrawCard.exe unittest1 unittest2 unittest3 unittest4 unittest5 dominion.gcda rngs.gcda
