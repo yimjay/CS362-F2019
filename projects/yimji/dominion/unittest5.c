@@ -13,6 +13,6 @@
 #include <stdio.h>
 
 int main(){
-    printf("This is the test for baron/n");
+
     return 0;
 }
