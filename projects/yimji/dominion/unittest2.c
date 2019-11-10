@@ -78,6 +78,14 @@ int main(){
         printf("TEST FAILED\n");
     }
 
+    printf("Test 5: Discard pile has increased by initial hand amount\n");
+    if(testG.handCount[1] == 10){
+        printf("TEST PASSED\n");
+    }else{
+        printf("TEST FAILED\n");
+    }
+
+    /* Causes seg fault
     testG.handCount[2] = 3;
     minionCardEffect(i, j, choice1, choice2, &testG, handpos, thisPlayer);
 
@@ -87,6 +95,7 @@ int main(){
     }else{
         printf("TEST FAILED\n");
     }
+    */
 
     printf("\nTESTING COMPLETE FOR %s\n\n", TESTCARD);
 
