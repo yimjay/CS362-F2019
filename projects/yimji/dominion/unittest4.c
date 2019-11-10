@@ -131,7 +131,7 @@ int main(){
     tributeRevealedCards[1] = baron;
     tributeCardEffect(i, &testG, &tributeRevealedCards, thisPlayer, nextPlayer);
 
-    printf("Test 7: For each differently named Treasure and Action card (copper, baron), +2 coins, +2 actions\n");
+    printf("Test 8: For each differently named Treasure and Action card (copper, baron), +2 coins, +2 actions\n");
     if((testG.numActions == G.numActions + 2) && (testG.coins == G.coins + 2)){
         printf("TEST PASSED\n");
     }else{
