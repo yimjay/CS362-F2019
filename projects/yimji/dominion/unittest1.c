@@ -41,9 +41,37 @@ int main(){
     choice1 = 1;
     baronCardEffect(choice1, &testG, thisPlayer);
 
-    //test 4 coins were gained
-    printf("Testing if 4 coins were gained after discarding an Estate\n");
+    printf("Test 1: 4 coins were gained after discarding an Estate\n");
     if(testG.coins == G.coins + 4){
+        printf("TEST PASSED\n");
+    }else{
+        printf("TEST FAILED\n");
+    }
+
+    printf("Test 2: Hand count was decreased after discarding an Estate\n");
+    if(testG.handCount[0] == 9){
+        printf("TEST PASSED\n");
+    }else{
+        printf("TEST FAILED\n");
+    }
+
+    printf("Test 3: Discard pile increased after discarding an Estate\n");
+    if(testG.discardCount[0] == 1){
+        printf("TEST PASSED\n");
+    }else{
+        printf("TEST FAILED\n");
+    }
+
+    //reset test gameState
+    memcpy(&testG, &G, sizeof(struct gameState));
+
+    //gain Estate card
+    choice1 = 0;
+    baronCardEffect(choice1, &testG, thisPlayer);
+    int oldSupplyEstate = testG.supplyCount[estate];
+
+    printf("Test 4: Supply pile decreased after gaining an Estate\n");
+    if(testG.supplyCount[estate] == oldSupplyEstate - 1){
         printf("TEST PASSED\n");
     }else{
         printf("TEST FAILED\n");
