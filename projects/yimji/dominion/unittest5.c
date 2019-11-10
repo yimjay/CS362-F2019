@@ -60,7 +60,7 @@ int main(){
     memcpy(&testG, &G, sizeof(struct gameState));
     choice1 = copper;
     choice2 = silver;
-    mineCardEffect(i, j, choice1, choice2, &testG, handpos, thisPlayer)
+    mineCardEffect(i, j, choice1, choice2, &testG, handpos, thisPlayer);
     printf("Test 3: Trash Copper to gain Silver. Hand counts should remain unchanged\n");
     if(testG.handCount[0] == G.handCount[0]){
         printf("TEST PASSED\n");
