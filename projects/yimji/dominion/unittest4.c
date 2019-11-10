@@ -119,11 +119,25 @@ int main(){
     tributeCardEffect(i, &testG, &tributeRevealedCards, thisPlayer, nextPlayer);
 
     printf("Test 7: For each differently named Action card (baron, baron), +2 actions\n");
-    if(testG.numActions == G.numActions + 4){
+    if(testG.numActions == G.numActions + = 2){
         printf("TEST PASSED\n");
     }else{
         printf("TEST FAILED\n");
     }
+
+    //reset test gameState
+    memcpy(&testG, &G, sizeof(struct gameState));
+    tributeRevealedCards[0] = copper;
+    tributeRevealedCards[1] = baron;
+    tributeCardEffect(i, &testG, &tributeRevealedCards, thisPlayer, nextPlayer);
+
+    printf("Test 7: For each differently named Treasure and Action card (copper, baron), +2 coins, +2 actions\n");
+    if((testG.numActions == G.numActions + 2) && (testG.coins == G.coins + 2)){
+        printf("TEST PASSED\n");
+    }else{
+        printf("TEST FAILED\n");
+    }
+
 
     printf("\nTESTING COMPLETE FOR %s\n\n", TESTCARD);
 
