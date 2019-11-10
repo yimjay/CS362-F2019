@@ -76,10 +76,10 @@ int main(){
     //reset test gameState
     memcpy(&testG, &G, sizeof(struct gameState));
     tributeRevealedCards[0] = province;
-    tributeRevealedCards[1] = garden;
+    tributeRevealedCards[1] = gardens;
     tributeCardEffect(i, &testG, &tributeRevealedCards, thisPlayer, nextPlayer);
 
-    printf("Test 4: For each differently named Victory card (province, garden), +2 cards\n");
+    printf("Test 4: For each differently named Victory card (province, gardens), +2 cards\n");
     if(testG.handCount == G.handCount + 4){
         printf("TEST PASSED\n");
     }else{
