@@ -119,7 +119,7 @@ int main(){
     tributeCardEffect(i, &testG, &tributeRevealedCards, thisPlayer, nextPlayer);
 
     printf("Test 7: For each differently named Action card (baron, baron), +2 actions\n");
-    if(testG.numActions == G.numActions + = 2){
+    if(testG.numActions == G.numActions + 2){
         printf("TEST PASSED\n");
     }else{
         printf("TEST FAILED\n");
