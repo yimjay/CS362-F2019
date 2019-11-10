@@ -11,7 +11,115 @@
 #include <string.h>
 #include <stdio.h>
 
+#define TESTCARD "TRIBUTE"
+
 int main(){
+    //set initial variables
+    //adapted from cardtest4.c from "Testing for business rules" module
+    int newCards = 0;
+    int discarded = 1;
+    int extraCoins = 0;
+    int shuffledCards = 0;
+    int i, j , m;
+    int handpos = 0, choice1 = 0, choice2 = 0, choice3 = 0, bonus = 0;
+    int remove1, remove2;
+    int seed = 1000;
+    int numPlayers = 2;
+    int thisPlayer = 0;
+    int nextPlayer = 1;
+    struct gameState G, testG;
+    int k[10] = {baron, minion, ambassador, tribute, mine, adventurer, village, smithy, estate, council_room};
+
+    //initialize gameState
+    initializeGame(numPlayers, k, seed, &G);
+
+    printf("------------This is the unit test for the %s card\n", TESTCARD);
+
+    //copy current gameState to a test gameState
+    memcpy(&testG, &G, sizeof(struct gameState));
+    int tributeRevealedCards[2] = {copper, copper};
+    tributeCardEffect(i, &testG, &tributeRevealedCards, thisPlayer, nextPlayer);
+
+    printf("Test 1: For each differently named Treasure card (cooper, copper), +2 coins\n");
+    if(testG.coins == G.coins + 2){
+        printf("TEST PASSED\n");
+    }else{
+        printf("TEST FAILED\n");
+    }
+
+    //reset test gameState
+    memcpy(&testG, &G, sizeof(struct gameState));
+    tributeRevealedCards = {copper, silver};
+    tributeCardEffect(i, &testG, &tributeRevealedCards, thisPlayer, nextPlayer);
+
+    printf("Test 2: For each differently named Treasure card (copper, silver), +2 coins\n");
+    if(testG.coins == G.coins + 4){
+        printf("TEST PASSED\n");
+    }else{
+        printf("TEST FAILED\n");
+    }
+
+    //reset test gameState
+    memcpy(&testG, &G, sizeof(struct gameState));
+    tributeRevealedCards = {estate, duchy};
+    tributeCardEffect(i, &testG, &tributeRevealedCards, thisPlayer, nextPlayer);
+
+    printf("Test 3: For each differently named Victory card (estate, duchy), +2 cards\n");
+    if(testG.handCount == G.handCount + 4){
+        printf("TEST PASSED\n");
+    }else{
+        printf("TEST FAILED\n");
+    }
+
+    //reset test gameState
+    memcpy(&testG, &G, sizeof(struct gameState));
+    tributeRevealedCards = {province, garden};
+    tributeCardEffect(i, &testG, &tributeRevealedCards, thisPlayer, nextPlayer);
+
+    printf("Test 4: For each differently named Victory card (province, garden), +2 cards\n");
+    if(testG.handCount == G.handCount + 4){
+        printf("TEST PASSED\n");
+    }else{
+        printf("TEST FAILED\n");
+    }
+
+    //reset test gameState
+    memcpy(&testG, &G, sizeof(struct gameState));
+    tributeRevealedCards = {great_hall, great_hall};
+    tributeCardEffect(i, &testG, &tributeRevealedCards, thisPlayer, nextPlayer);
+
+    printf("Test 5: For each differently named Victory card (great_hall, great_hall), +2 cards\n");
+    if(testG.handCount == G.handCount + 2){
+        printf("TEST PASSED\n");
+    }else{
+        printf("TEST FAILED\n");
+    }
+
+    //reset test gameState
+    memcpy(&testG, &G, sizeof(struct gameState));
+    tributeRevealedCards = {cellar, moat};
+    tributeCardEffect(i, &testG, &tributeRevealedCards, thisPlayer, nextPlayer);
+
+    printf("Test 6: For each differently named Action card (moat, cellar), +2 actions\n");
+    if(testG.numActions == G.numActions + 4){
+        printf("TEST PASSED\n");
+    }else{
+        printf("TEST FAILED\n");
+    }
+
+    //reset test gameState
+    memcpy(&testG, &G, sizeof(struct gameState));
+    tributeRevealedCards = {cellar, cellar};
+    tributeCardEffect(i, &testG, &tributeRevealedCards, thisPlayer, nextPlayer);
+
+    printf("Test 7: For each differently named Action card (cellar, cellar), +2 actions\n");
+    if(testG.numActions == G.numActions + 4){
+        printf("TEST PASSED\n");
+    }else{
+        printf("TEST FAILED\n");
+    }
+
+    printf("\nTESTING COMPLETE FOR %s\n\n", TESTCARD);
 
     return 0;
 }
