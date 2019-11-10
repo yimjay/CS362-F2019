@@ -11,7 +11,66 @@
 #include <string.h>
 #include <stdio.h>
 
+#define TESTCARD "MINION"
+
 int main(){
+    //set initial variables
+    //adapted from cardtest4.c from "Testing for business rules" module
+    int newCards = 0;
+    int discarded = 1;
+    int extraCoins = 0;
+    int shuffledCards = 0;
+    int i, j , m;
+    int handpos = 0, choice1 = 0, choice2 = 0, choice3 = 0, bonus = 0;
+    int remove1, remove2;
+    int seed = 1000;
+    int numPlayers = 2;
+    int thisPlayer = 0;
+    struct gameState G, testG;
+    int k[10] = {baron, minion, ambassador, tribute, mine, adventurer, village, smithy, estate, council_room};
+
+    //initialize gameState
+    initializeGame(numPlayers, k, seed, &G);
+
+    printf("------------This is the unit test for the %s card\n", TESTCARD);
+
+    //copy current gameState to a test gameState
+    memcpy(&testG, &G, sizeof(struct gameState));
+
+    //discard gain 2 coins
+    choice1 = 1;
+
+    minionCardEffect(i, j, choice1, choice2, &testG, handpos, thisPlayer);
+
+    printf("Test 1: 2 coins were gained\n");
+    if(testG.coins == G.coins + 2){
+        printf("TEST PASSED\n");
+    }else{
+        printf("TEST FAILED\n");
+    }
+
+    printf("Test 2: Action increased by 1\n");
+    if(testG.numActions == G.numActions + 1){
+        printf("TEST PASSED\n");
+    }else{
+        printf("TEST FAILED\n");
+    }
+
+    //reset test gameState
+    memcpy(&testG, &G, sizeof(struct gameState));
+
+    //discard hand and gain 4 cards
+    choice1 = 0;
+    minionCardEffect(i, j, choice1, choice2, &testG, handpos, thisPlayer);
+
+    printf("Test 3: 4 cards in current hand\n");
+    if(testG.handCount == 4){
+        printf("TEST PASSED\n");
+    }else{
+        printf("TEST FAILED\n");
+    }
+
+    printf("\nTESTING COMPLETE FOR %s\n\n", TESTCARD);
 
     return 0;
 }
