@@ -85,6 +85,13 @@ int main(){
         printf("TEST FAILED\n");
     }
 
+    printf("Test 6: Coins remain the same\n");
+    if(testG.coins == G.coins){
+        printf("TEST PASSED\n");
+    }else{
+        printf("TEST FAILED\n");
+    }
+
     /* Causes seg fault
     testG.handCount[2] = 3;
     minionCardEffect(i, j, choice1, choice2, &testG, handpos, thisPlayer);
