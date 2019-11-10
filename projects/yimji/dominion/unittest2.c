@@ -60,7 +60,7 @@ int main(){
     memcpy(&testG, &G, sizeof(struct gameState));
 
     //discard hand and gain 4 cards
-    choice1 = -1;
+    choice1 = 0;
     choice2 = 1;
     minionCardEffect(i, j, choice1, choice2, &testG, handpos, thisPlayer);
 
@@ -72,6 +72,16 @@ int main(){
     }
 
     printf("Test 4: 4 cards in next player hand\n");
+    if(testG.handCount[2] == 4){
+        printf("TEST PASSED\n");
+    }else{
+        printf("TEST FAILED\n");
+    }
+
+    testG.handCount[2] == 3;
+    minionCardEffect(i, j, choice1, choice2, &testG, handpos, thisPlayer);
+
+    printf("Test 5: Next player does not redraw if they have less than 5 cards in hand\n");
     if(testG.handCount[2] == 4){
         printf("TEST PASSED\n");
     }else{
