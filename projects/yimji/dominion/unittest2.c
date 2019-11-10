@@ -25,7 +25,7 @@ int main(){
     int remove1, remove2;
     int seed = 1000;
     int numPlayers = 2;
-    int thisPlayer = 0;
+    int thisPlayer = 1;
     struct gameState G, testG;
     int k[10] = {baron, minion, ambassador, tribute, mine, adventurer, village, smithy, estate, council_room};
 
@@ -61,6 +61,7 @@ int main(){
 
     //discard hand and gain 4 cards
     choice1 = 0;
+    choice2 = 1;
     minionCardEffect(i, j, choice1, choice2, &testG, handpos, thisPlayer);
 
     printf("Test 3: 4 cards in current hand\n");
