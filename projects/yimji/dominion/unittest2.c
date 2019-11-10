@@ -25,7 +25,7 @@ int main(){
     int remove1, remove2;
     int seed = 1000;
     int numPlayers = 2;
-    int thisPlayer = 1;
+    int thisPlayer = 0;
     struct gameState G, testG;
     int k[10] = {baron, minion, ambassador, tribute, mine, adventurer, village, smithy, estate, council_room};
 
@@ -65,21 +65,21 @@ int main(){
     minionCardEffect(i, j, choice1, choice2, &testG, handpos, thisPlayer);
 
     printf("Test 3: 4 cards in current hand\n");
-    if(testG.handCount[1] == 4){
+    if(testG.handCount[0] == 4){
         printf("TEST PASSED\n");
     }else{
         printf("TEST FAILED\n");
     }
 
     printf("Test 4: 4 cards in next player hand\n");
-    if(testG.handCount[2] == 4){
+    if(testG.handCount[1] == 4){
         printf("TEST PASSED\n");
     }else{
         printf("TEST FAILED\n");
     }
 
     printf("Test 5: Discard pile has increased by initial hand amount\n");
-    if(testG.handCount[1] == 10){
+    if(testG.handCount[0] == 10){
         printf("TEST PASSED\n");
     }else{
         printf("TEST FAILED\n");
@@ -91,6 +91,8 @@ int main(){
     }else{
         printf("TEST FAILED\n");
     }
+
+    minionCardEffect(i, j, choice1, choice2, &testG, handpos, thisPlayer);
 
     /* Causes seg fault
     testG.handCount[2] = 3;
