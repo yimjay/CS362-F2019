@@ -49,7 +49,8 @@ int main(){
 
     //reset test gameState
     memcpy(&testG, &G, sizeof(struct gameState));
-    int tributeRevealedCards[2] = {copper, silver};
+    tributeRevealedCards[0] = copper;
+    tributeRevealedCards[1] = silver;
     tributeCardEffect(i, &testG, &tributeRevealedCards, thisPlayer, nextPlayer);
 
     printf("Test 2: For each differently named Treasure card (copper, silver), +2 coins\n");
@@ -61,7 +62,8 @@ int main(){
 
     //reset test gameState
     memcpy(&testG, &G, sizeof(struct gameState));
-    int tributeRevealedCards[2] = {estate, duchy};
+    tributeRevealedCards[0] = estate;
+    tributeRevealedCards[1] = duchy;
     tributeCardEffect(i, &testG, &tributeRevealedCards, thisPlayer, nextPlayer);
 
     printf("Test 3: For each differently named Victory card (estate, duchy), +2 cards\n");
@@ -73,7 +75,8 @@ int main(){
 
     //reset test gameState
     memcpy(&testG, &G, sizeof(struct gameState));
-    int tributeRevealedCards[2] = {province, garden};
+    tributeRevealedCards[0] = province;
+    tributeRevealedCards[1] = garden;
     tributeCardEffect(i, &testG, &tributeRevealedCards, thisPlayer, nextPlayer);
 
     printf("Test 4: For each differently named Victory card (province, garden), +2 cards\n");
@@ -85,7 +88,8 @@ int main(){
 
     //reset test gameState
     memcpy(&testG, &G, sizeof(struct gameState));
-    int tributeRevealedCards[2] = {great_hall, great_hall};
+    tributeRevealedCards[0] = great_hall;
+    tributeRevealedCards[1] = great_hall;
     tributeCardEffect(i, &testG, &tributeRevealedCards, thisPlayer, nextPlayer);
 
     printf("Test 5: For each differently named Victory card (great_hall, great_hall), +2 cards\n");
@@ -97,10 +101,11 @@ int main(){
 
     //reset test gameState
     memcpy(&testG, &G, sizeof(struct gameState));
-    int tributeRevealedCards[2] = {cellar, moat};
+    tributeRevealedCards[0] = baron;
+    tributeRevealedCards[1] = minion;
     tributeCardEffect(i, &testG, &tributeRevealedCards, thisPlayer, nextPlayer);
 
-    printf("Test 6: For each differently named Action card (moat, cellar), +2 actions\n");
+    printf("Test 6: For each differently named Action card (baron, minion), +2 actions\n");
     if(testG.numActions == G.numActions + 4){
         printf("TEST PASSED\n");
     }else{
@@ -109,10 +114,11 @@ int main(){
 
     //reset test gameState
     memcpy(&testG, &G, sizeof(struct gameState));
-    int tributeRevealedCards[2] = {cellar, cellar};
+    tributeRevealedCards[0] = baron;
+    tributeRevealedCards[1] = baron;
     tributeCardEffect(i, &testG, &tributeRevealedCards, thisPlayer, nextPlayer);
 
-    printf("Test 7: For each differently named Action card (cellar, cellar), +2 actions\n");
+    printf("Test 7: For each differently named Action card (baron, baron), +2 actions\n");
     if(testG.numActions == G.numActions + 4){
         printf("TEST PASSED\n");
     }else{
