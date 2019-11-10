@@ -93,6 +93,7 @@ int main(){
     }
 
     minionCardEffect(i, j, choice1, choice2, &testG, handpos, thisPlayer);
+    minionCardEffect(i, j, choice1, choice2, &testG, handpos, thisPlayer);
 
     /* Causes seg fault
     testG.handCount[2] = 3;
