@@ -60,7 +60,7 @@ int main(){
     memcpy(&testG, &G, sizeof(struct gameState));
 
     //discard hand and gain 4 cards
-    choice1 = 0;
+    choice1 = -1;
     choice2 = 1;
     minionCardEffect(i, j, choice1, choice2, &testG, handpos, thisPlayer);
 
