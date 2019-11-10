@@ -64,7 +64,7 @@ int main(){
 
     //play baron again with no estate card
     choice1 = 0;
-    int k[10] = {baron, minion, ambassador, tribute, mine, adventurer, village, smithy, smithy, council_room};
+    int k[8] = smithy;
     baronCardEffect(choice1, &testG, thisPlayer);
     printf("Test 4: Gain an estate card if no Estates in hand\n");
     if(testG.handCount[0] == 10){
