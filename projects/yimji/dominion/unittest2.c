@@ -65,7 +65,14 @@ int main(){
     minionCardEffect(i, j, choice1, choice2, &testG, handpos, thisPlayer);
 
     printf("Test 3: 4 cards in current hand\n");
-    if(testG.handCount == 4){
+    if(testG.handCount[1] == 4){
+        printf("TEST PASSED\n");
+    }else{
+        printf("TEST FAILED\n");
+    }
+
+    printf("Test 4: 4 cards in next player hand\n");
+    if(testG.handCount[2] == 4){
         printf("TEST PASSED\n");
     }else{
         printf("TEST FAILED\n");
