@@ -112,7 +112,14 @@ int main(){
         printf("TEST FAILED\n");
     }
 
+    //reset test gameState
     memcpy(&testG, &G, sizeof(struct gameState));
+
+    //discard hand and gain 4 cards
+    choice1 = 1;
+    choice2 = 1;
+    minionCardEffect(i, j, choice1, choice2, &testG, handpos, thisPlayer);
+
 
     printf("\nTESTING COMPLETE FOR %s\n\n", TESTCARD);
 
