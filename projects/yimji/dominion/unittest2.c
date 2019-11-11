@@ -16,13 +16,8 @@
 int main(){
     //set initial variables
     //adapted from cardtest4.c from "Testing for business rules" module
-    int newCards = 0;
-    int discarded = 1;
-    int extraCoins = 0;
-    int shuffledCards = 0;
     int i, j , m;
     int handpos = 1, choice1 = 0, choice2 = 0, choice3 = 0, bonus = 0;
-    int remove1, remove2;
     int seed = 1000;
     int numPlayers = 2;
     int thisPlayer = 0;
@@ -37,8 +32,10 @@ int main(){
     //copy current gameState to a test gameState
     memcpy(&testG, &G, sizeof(struct gameState));
 
-    //discard gain 2 coins
+    //discard minion and gain 2 coins
     choice1 = 1;
+    testG.handCount[0] = 10;
+    testG.handCount[1] = 10;
 
     minionCardEffect(i, j, choice1, choice2, &testG, handpos, thisPlayer);
 
@@ -51,6 +48,13 @@ int main(){
 
     printf("Test 2: Action increased by 1\n");
     if(testG.numActions == G.numActions + 1){
+        printf("TEST PASSED\n");
+    }else{
+        printf("TEST FAILED\n");
+    }
+
+    printf("Test: Next player does not discard and draw when current player chooses +2 coins\n");
+    if(testG.handCount[1] == 10){
         printf("TEST PASSED\n");
     }else{
         printf("TEST FAILED\n");
