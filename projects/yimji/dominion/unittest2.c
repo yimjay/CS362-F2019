@@ -117,7 +117,7 @@ int main(){
 
     //discard hand and gain 4 cards
     choice1 = 1;
-    choice2 = 1;
+    choice2 = 2;
     minionCardEffect(i, j, choice1, choice2, &testG, handpos, thisPlayer);
 
 
