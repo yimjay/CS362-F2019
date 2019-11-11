@@ -21,7 +21,7 @@ int main(){
     int extraCoins = 0;
     int shuffledCards = 0;
     int i, j , m;
-    int handpos = 0, choice1 = 0, choice2 = 0, choice3 = 0, bonus = 0;
+    int handpos = 1, choice1 = 0, choice2 = 0, choice3 = 0, bonus = 0;
     int remove1, remove2;
     int seed = 1000;
     int numPlayers = 2;
@@ -111,15 +111,6 @@ int main(){
     }else{
         printf("TEST FAILED\n");
     }
-
-    //reset test gameState
-    memcpy(&testG, &G, sizeof(struct gameState));
-
-    //discard hand and gain 4 cards
-    choice1 = 1;
-    choice2 = 2;
-    minionCardEffect(i, j, choice1, choice2, &testG, handpos, thisPlayer);
-
 
     printf("\nTESTING COMPLETE FOR %s\n\n", TESTCARD);
 
