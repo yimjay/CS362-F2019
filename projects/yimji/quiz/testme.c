@@ -8,7 +8,7 @@ char inputChar()
     //rand usage adapted from
     //https://www.codingunit.com/c-reference-stdlib-
     //h-function-rand-generate-a-random-number
-    char randomChar = rand()%127;
+    char randomChar = (rand()%(122-65))+65;
     return randomChar;
 }
 
@@ -17,10 +17,10 @@ char *inputString()
     int length = 6; //get a random length for the string
     char randomString[length];
     int i;
-    for(i = 0; i < length; i++){
+    for(i = 0; i < length - 1; i++){
         randomString[i] = inputChar();
     }
-    randomString[6] = '\0';
+    randomString[5] = '\0';
     return randomString;
 }
 
