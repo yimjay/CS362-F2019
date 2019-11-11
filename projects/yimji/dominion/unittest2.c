@@ -79,7 +79,7 @@ int main(){
     }
 
     printf("Test 5: Discard pile has increased by initial hand amount\n");
-    if(testG.handCount[0] == 10){
+    if(testG.discardCount[0] == 10){
         printf("TEST PASSED\n");
     }else{
         printf("TEST FAILED\n");
