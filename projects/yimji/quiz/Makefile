@@ -2,9 +2,9 @@
 # Description: Makefile for testme.c
 
 CXX = g++
-CXXFLAGS = -std=c++11 -g -Wall -Wextra -Werror
-SOURCES = $(wildcard *.cpp)
-OBJECTS = $(SOURCES:.cpp=.o)
+CXXFLAGS = -Wall -fpic -coverage -lm
+SOURCES = $(wildcard *.c)
+OBJECTS = $(SOURCES:.c=.o)
 EXECUTABLE = testme
 
 all: $(EXECUTABLE)

@@ -5,14 +5,21 @@
 
 char inputChar()
 {
-    // TODO: rewrite this function
-    return ' ';
+    //rand usage adapted from
+    //https://www.codingunit.com/c-reference-stdlib-
+    //h-function-rand-generate-a-random-number
+    char randomChar = rand() % 122 + 97;
+    return randomChar;
 }
 
 char *inputString()
 {
-    // TODO: rewrite this function
-    return "";
+    int length = rand() % 20 + 10; //get a random length for the string
+    char randomString[length];
+    for(int i = 0; i < length; i++){
+        randomString[i] = rand() % 122 + 97;
+    }
+    return randomString;
 }
 
 void testme()
