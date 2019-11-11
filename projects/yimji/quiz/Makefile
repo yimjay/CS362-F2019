@@ -3,7 +3,7 @@
 
 CXX = g++
 CXXFLAGS = -std=c++11 -g -Wall -Wextra -Werror
-SOURCES = $(wildcard *.cpp)
+SOURCES = $(wildcard *.c)
 OBJECTS = $(SOURCES:.cpp=.o)
 EXECUTABLE = testme
 
