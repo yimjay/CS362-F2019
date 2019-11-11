@@ -92,6 +92,13 @@ int main(){
         printf("TEST FAILED\n");
     }
 
+    printf("Test 7: Action increased by 1\n");
+    if(testG.numActions == G.numActions + 1){
+        printf("TEST PASSED\n");
+    }else{
+        printf("TEST FAILED\n");
+    }
+
     minionCardEffect(i, j, choice1, choice2, &testG, handpos, thisPlayer);
 
     /* Causes seg fault
