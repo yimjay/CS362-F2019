@@ -14,7 +14,7 @@ char inputChar()
 
 char *inputString()
 {
-    int length = 6; //get a random length for the string
+    int length = 6;
     char randomString[length];
     int i;
     for(i = 0; i < length - 1; i++){
