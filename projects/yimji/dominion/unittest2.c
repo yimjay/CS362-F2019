@@ -99,10 +99,8 @@ int main(){
         printf("TEST FAILED\n");
     }
 
-    minionCardEffect(i, j, choice1, choice2, &testG, handpos, thisPlayer);
-
-
     testG.handCount[1] = 3;
+    thisPlayer = 1;
     minionCardEffect(i, j, choice1, choice2, &testG, handpos, thisPlayer);
 
     printf("Test 5: Next player does not redraw if they have less than 5 cards in hand\n");
