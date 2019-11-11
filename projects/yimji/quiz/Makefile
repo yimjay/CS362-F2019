@@ -4,7 +4,7 @@
 CXX = g++
 CXXFLAGS = -std=c++11 -g -Wall
 SOURCES = $(wildcard *.c)
-OBJECTS = $(SOURCES:.cpp=.o)
+OBJECTS = $(SOURCES:.c=.o)
 EXECUTABLE = testme
 
 all: $(EXECUTABLE)
