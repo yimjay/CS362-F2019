@@ -101,8 +101,8 @@ int main(){
 
     minionCardEffect(i, j, choice1, choice2, &testG, handpos, thisPlayer);
 
-    /* Causes seg fault
-    testG.handCount[2] = 3;
+
+    testG.handCount[1] = 3;
     minionCardEffect(i, j, choice1, choice2, &testG, handpos, thisPlayer);
 
     printf("Test 5: Next player does not redraw if they have less than 5 cards in hand\n");
@@ -111,7 +111,7 @@ int main(){
     }else{
         printf("TEST FAILED\n");
     }
-    */
+
 
     printf("\nTESTING COMPLETE FOR %s\n\n", TESTCARD);
 
