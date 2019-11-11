@@ -16,7 +16,8 @@ char *inputString()
 {
     int length = rand() % 20 + 10; //get a random length for the string
     char randomString[length];
-    for(int i = 0; i < length; i++){
+    int i;
+    for(i = 0; i < length; i++){
         randomString[i] = rand() % 122 + 97;
     }
     return randomString;
