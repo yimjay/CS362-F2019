@@ -14,12 +14,13 @@ char inputChar()
 
 char *inputString()
 {
-    int length = rand() % 20 + 10; //get a random length for the string
+    int length = 6; //get a random length for the string
     char randomString[length];
     int i;
     for(i = 0; i < length; i++){
         randomString[i] = rand() % 122 + 97;
     }
+    randomString[6] = '\0';
     return randomString;
 }
 
