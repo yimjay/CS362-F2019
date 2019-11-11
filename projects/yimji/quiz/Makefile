@@ -1,11 +1,19 @@
 # Student: Ji Soo Yim
 # Description: Makefile for testme.c
 
-CFLAGS= -Wall -fpic -coverage -lm -std=c99
+CXX = g++
+CXXFLAGS = -std=c++11 -g -Wall -Wextra -Werror
+SOURCES = $(wildcard *.cpp)
+OBJECTS = $(SOURCES:.cpp=.o)
+EXECUTABLE = testme
 
-testme:
-	$(CFLAGS) gcc -o testme -g testme.c
-	./testme
+all: $(EXECUTABLE)
+
+$(EXECUTABLE): $(OBJECTS)
+	$(CXX) $(CXXFLAGS) $(OBJECTS) -o $(EXECUTABLE)
+
+.cpp .o:
+	$(CXX) -c $(CXXFLAGS) $< -o $@
 
 clean:
-	rm *.o testme *.gcov *.gcda *.gcno
+	rm -f $(EXECUTABLE) $(OBJECTS)
