@@ -8,7 +8,7 @@ char inputChar()
     //rand usage adapted from
     //https://www.codingunit.com/c-reference-stdlib-
     //h-function-rand-generate-a-random-number
-    char randomChar = (rand() % (122 - 91 + 1)) + 91;
+    char randomChar = (rand() % 94) + 32;
     return randomChar;
 }
 
