@@ -14,8 +14,8 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define TESTCARD "BARON"
-#define NUMTESTS 1000
+#define TESTCARD "TRIBUTE"
+#define NUMTESTS 1000000
 
 int inputInt(int min, int max){
     int randomInt = (rand() % (max - min)) + min;
@@ -30,27 +30,34 @@ int main(){
     int extraCoins = 0;
     int shuffledCards = 0;
     int i, j , m;*/
-    int handpos = 0, choice1 = 0, choice2 = 0, choice3 = 0, bonus = 0;
+    int handpos = 0, choice1 = 0, choice2 = 0;
     //int remove1, remove2;
     int seed = 1000;
     struct gameState G, testG;
     int k[10] = {baron, minion, ambassador, tribute, mine, adventurer, village, smithy, estate, council_room};
 
-    printf("-------------------------------TESTING CARD %s-------------------------------\n", TESTCARD);
+    //printf("-------------------------------TESTING CARD %s-------------------------------\n", TESTCARD);
 
-    int i;
+    int i, j;
     for(i = 0; i < NUMTESTS; i++){
-        printf("-------------------------------Test number %d\n", i);
+        //printf("-------------------------------Test number %d\n", i);
         numPlayers = inputInt(1, 2);
 
         //initialize gameState
         initializeGame(numPlayers, k, seed, &G);
+        G.deckCount[numPlayers] = inputInt(0, MAX_DECK);
+        G.discardCount[numPlayers] = inputInt(0, MAX_DECK);
+        G.handCount[numPlayers] = inputInt(0, MAX_HAND);
+        G.supplyCount[estate] = inputInt(0, MAX_DECK);
+        int tributeRevealedCards[2];
+        tributeRevealedCards[0] = inputInt(0, MAX_DECK);
+        tributeRevealedCards[1] = inputInt(0, MAX_DECK);
 
         memcpy(&testG, &G, sizeof(struct gameState));
 
         thisPlayer = inputInt(0, 1);
-        choice1 = inputInt(1, 2);
-        baronCardEffect(choice1, &testG, thisPlayer);
+        nextPlayer = inputInt(0, 1);
+        tributeCardEffect(j, &testG, &tributeRevealedCards, thisPlayer, nextPlayer);
     }
 
     return 0;
