@@ -25,13 +25,7 @@ int inputInt(int min, int max){
 int main(){
     srand(time(NULL));
     int numPlayers, thisPlayer, nextPlayer;
-    /*int newCards = 0;
-    int discarded = 0;
-    int extraCoins = 0;
-    int shuffledCards = 0;
-    int i, j , m;*/
-    int handpos = 0, choice1 = 0, choice2 = 0;
-    //int remove1, remove2;
+    int choice1 = 0, choice2 = 0;
     int seed = 1000;
     struct gameState G, testG;
     int k[10] = {baron, minion, ambassador, tribute, mine, adventurer, village, smithy, estate, council_room};

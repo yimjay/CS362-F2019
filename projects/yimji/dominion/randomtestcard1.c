@@ -38,12 +38,6 @@ int main(){
 
         //initialize gameState
         initializeGame(numPlayers, k, seed, &G);
-        /*G.deckCount[numPlayers] = inputInt(0, MAX_DECK);
-        G.discardCount[numPlayers] = inputInt(0, MAX_DECK);
-        G.handCount[numPlayers] = inputInt(0, MAX_HAND);
-        G.deckCount[numPlayers] = inputInt(0, MAX_DECK);
-        G.discardCount[numPlayers] = inputInt(0, MAX_DECK);
-        G.handCount[numPlayers] = inputInt(0, MAX_HAND);*/
         G.supplyCount[estate] = inputInt(0, MAX_DECK);
 
         memcpy(&testG, &G, sizeof(struct gameState));
