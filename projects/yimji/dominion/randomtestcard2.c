@@ -46,8 +46,8 @@ int main(){
         G.deckCount[nextPlayer] = inputInt(0, MAX_DECK);
         G.discardCount[nextPlayer] = inputInt(0, MAX_DECK);
         G.handCount[nextPlayer] = inputInt(0, MAX_HAND);
-        choice1 = inputInt(0, 1);
-        choice2 = inputInt(0, 1);
+        choice1 = inputInt(0, 2);
+        choice2 = inputInt(0, 2);
         handpos = inputInt(0, MAX_HAND);
 
         memcpy(&testG, &G, sizeof(struct gameState));
