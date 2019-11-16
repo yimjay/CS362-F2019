@@ -49,7 +49,7 @@ int main(){
         choice1 = inputInt(0, 2);
         baronCardEffect(choice1, &testG, thisPlayer);
 
-        testG.hand[thisPlayer][numPlayers] == estate;
+        testG.hand[thisPlayer][numPlayers] = estate;
         baronCardEffect(choice1, &testG, thisPlayer);
     }
 
