@@ -24,12 +24,7 @@ int inputInt(int min, int max){
 int main(){
     srand(time(NULL));
     int numPlayers, thisPlayer;
-    /*int newCards = 0;
-    int discarded = 0;
-    int extraCoins = 0;
-    int shuffledCards = 0;*/
     int handpos = 0, choice1 = 0, choice2 = 0;
-    //int remove1, remove2;
     int seed = 1000;
     struct gameState G, testG;
     int k[10] = {baron, minion, ambassador, tribute, mine, adventurer, village, smithy, estate, council_room};
@@ -43,14 +38,18 @@ int main(){
 
         //initialize gameState
         initializeGame(numPlayers, k, seed, &G);
-        G.deckCount[numPlayers] = inputInt(0, MAX_DECK);
-        G.discardCount[numPlayers] = inputInt(0, MAX_DECK);
-        G.handCount[numPlayers] = inputInt(0, MAX_HAND);
-        G.supplyCount[estate] = inputInt(0, MAX_DECK);
+        thisPlayer = 0;
+        nextPlayer = 1;
+        G.deckCount[thisPlayer] = inputInt(0, MAX_DECK);
+        G.discardCount[thisPlayer] = inputInt(0, MAX_DECK);
+        G.handCount[thisPlayer] = inputInt(0, MAX_HAND);
+        G.deckCount[nextPlayer] = inputInt(0, MAX_DECK);
+        G.discardCount[nextPlayer] = inputInt(0, MAX_DECK);
+        G.handCount[nextPlayer] = inputInt(0, MAX_HAND);
 
         memcpy(&testG, &G, sizeof(struct gameState));
 
-        thisPlayer = inputInt(0, 1);
+
         choice1 = inputInt(0, 1);
         choice2 = inputInt(0, 1);
         handpos = inputInt(0, MAX_HAND);
