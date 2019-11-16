@@ -48,7 +48,7 @@ int main(){
         thisPlayer = inputInt(0, 1);
         choice1 = inputInt(0, 2);
 
-        if(thisPlayer == 0){
+        if(thisPlayer == 1){
             testG.hand[thisPlayer][numPlayers] = estate;
         }
         baronCardEffect(choice1, &testG, thisPlayer);
