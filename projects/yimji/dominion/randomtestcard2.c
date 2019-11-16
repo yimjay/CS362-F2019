@@ -46,12 +46,12 @@ int main(){
         G.deckCount[nextPlayer] = inputInt(0, MAX_DECK);
         G.discardCount[nextPlayer] = inputInt(0, MAX_DECK);
         G.handCount[nextPlayer] = inputInt(0, MAX_HAND);
-
-        memcpy(&testG, &G, sizeof(struct gameState));
-
         choice1 = inputInt(0, 1);
         choice2 = inputInt(0, 1);
         handpos = inputInt(0, MAX_HAND);
+
+        memcpy(&testG, &G, sizeof(struct gameState));
+
         minionCardEffect(m, j, choice1, choice2, &testG, handpos, thisPlayer);
     }
 
