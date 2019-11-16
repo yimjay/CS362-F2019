@@ -58,9 +58,6 @@ int main(){
         thisPlayer = inputInt(0, 1);
         nextPlayer = inputInt(0, 1);
         tributeCardEffect(j, &testG, &tributeRevealedCards, thisPlayer, nextPlayer);
-
-        G.hand[thisPlayer][numPlayers] == estate;
-        tributeCardEffect(j, &testG, &tributeRevealedCards, thisPlayer, nextPlayer);
     }
 
     return 0;
