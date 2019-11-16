@@ -23,7 +23,7 @@ int inputInt(int min, int max){
 
 int main(){
     srand(time(NULL));
-    int numPlayers, thisPlayer;
+    int numPlayers, thisPlayer, nextPlayer;
     int handpos = 0, choice1 = 0, choice2 = 0;
     int seed = 1000;
     struct gameState G, testG;
@@ -48,7 +48,6 @@ int main(){
         G.handCount[nextPlayer] = inputInt(0, MAX_HAND);
 
         memcpy(&testG, &G, sizeof(struct gameState));
-
 
         choice1 = inputInt(0, 1);
         choice2 = inputInt(0, 1);
