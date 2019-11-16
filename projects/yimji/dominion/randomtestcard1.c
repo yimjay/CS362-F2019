@@ -14,7 +14,7 @@
 #include <time.h>
 
 #define TESTCARD "BARON"
-#define NUMTESTS 10000
+#define NUMTESTS 1000
 
 int inputInt(int min, int max){
     int randomInt = (rand() % (max - min)) + min;
@@ -48,7 +48,7 @@ int main(){
         memcpy(&testG, &G, sizeof(struct gameState));
 
         thisPlayer = inputInt(0, 1);
-        choice1 = inputInt(1, 2);
+        choice1 = inputInt(0, 2);
         baronCardEffect(choice1, &testG, thisPlayer);
     }
 
