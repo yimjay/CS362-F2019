@@ -14,7 +14,7 @@
 #include <time.h>
 
 #define TESTCARD "BARON"
-#define NUMTESTS 1000
+#define NUMTESTS 10000
 
 int inputInt(int min, int max){
     int randomInt = (rand() % (max - min)) + min;
@@ -35,11 +35,11 @@ int main(){
     struct gameState G, testG;
     int k[10] = {baron, minion, ambassador, tribute, mine, adventurer, village, smithy, estate, council_room};
 
-    printf("-------------------------------TESTING CARD %s-------------------------------\n", TESTCARD);
+    //printf("-------------------------------TESTING CARD %s-------------------------------\n", TESTCARD);
 
     int i;
     for(i = 0; i < NUMTESTS; i++){
-        printf("-------------------------------Test number %d\n", i);
+        //printf("-------------------------------Test number %d\n", i);
         numPlayers = inputInt(1, 2);
 
         //initialize gameState
