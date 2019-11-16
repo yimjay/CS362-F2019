@@ -14,7 +14,7 @@
 #include <time.h>
 
 #define TESTCARD "BARON"
-#define NUMTESTS 1000
+#define NUMTESTS 1000000
 
 int inputInt(int min, int max){
     int randomInt = (rand() % (max - min)) + min;
@@ -44,9 +44,10 @@ int main(){
 
         //initialize gameState
         initializeGame(numPlayers, k, seed, &G);
-        G.deckCount[numPlayers] = floor(Random() * MAX_DECK);
-        G.discardCount[numPlayers] = floor(Random() * MAX_DECK);
-        G.handCount[numPlayers] = floor(Random() * MAX_HAND);
+        G.deckCount[numPlayers] = inputInt(0, MAX_DECK)
+        G.discardCount[numPlayers] = inputInt(0, MAX_DECK)
+        G.handCount[numPlayers] = inputInt(0, MAX_HAND)
+        G.supplyCount[estate] = inputInt(0, MAX_DECK)
 
         memcpy(&testG, &G, sizeof(struct gameState));
 
