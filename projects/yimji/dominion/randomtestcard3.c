@@ -25,7 +25,6 @@ int inputInt(int min, int max){
 int main(){
     srand(time(NULL));
     int numPlayers, thisPlayer, nextPlayer;
-    int choice1 = 0, choice2 = 0;
     int seed = 1000;
     struct gameState G, testG;
     int k[10] = {baron, minion, ambassador, tribute, mine, adventurer, village, smithy, estate, council_room};
