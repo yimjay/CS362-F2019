@@ -24,14 +24,14 @@ runtests: testDrawCard
 player: player.c interface.o
 	gcc -o player player.c -g  dominion.o rngs.o interface.o $(CFLAGS)
 
-randomtest1: randomtest1.c dominion.o rngs.o
-	gcc -o randomtest1 -g randomtest1.c dominion.o rngs.o $(CFLAGS)
+randomtest1: randomtestcard1.c dominion.o rngs.o
+	gcc -o randomtest1 -g randomtestcard1.c dominion.o rngs.o $(CFLAGS)
 
-randomtest2: randomtest2.c dominion.o rngs.o
-	gcc -o randomtest2 -g randomtest2.c dominion.o rngs.o $(CFLAGS)
+randomtest2: randomtestcard2.c dominion.o rngs.o
+	gcc -o randomtest2 -g randomtestcard2.c dominion.o rngs.o $(CFLAGS)
 
-randomtest3: randomtest3.c dominion.o rngs.o
-	gcc -o randomtest3 -g randomtest3.c dominion.o rngs.o $(CFLAGS)
+randomtest3: randomtestcard3.c dominion.o rngs.o
+	gcc -o randomtest3 -g randomtestcard3.c dominion.o rngs.o $(CFLAGS)
 
 randomtestresults: randomtest1 randomtest2 randomtest3
 	./randomtest1 >> randomtestresults.out
