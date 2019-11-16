@@ -45,9 +45,16 @@ int main(){
 
         //initialize gameState
         initializeGame(numPlayers, k, seed, &G);
-        G.deckCount[numPlayers] = inputInt(0, MAX_DECK);
-        G.discardCount[numPlayers] = inputInt(0, MAX_DECK);
-        G.handCount[numPlayers] = inputInt(0, MAX_HAND);
+
+        thisPlayer = 0;
+        nextPlayer = 1;
+
+        G.deckCount[thisPlayer] = inputInt(0, MAX_DECK);
+        G.discardCount[thisPlayer] = inputInt(0, MAX_DECK);
+        G.handCount[thisPlayer] = inputInt(0, MAX_HAND);
+        G.deckCount[nextPlayer] = inputInt(0, MAX_DECK);
+        G.discardCount[nextPlayer] = inputInt(0, MAX_DECK);
+        G.handCount[nextPlayer] = inputInt(0, MAX_HAND);
         G.supplyCount[estate] = inputInt(0, MAX_DECK);
         int tributeRevealedCards[2];
         tributeRevealedCards[0] = inputInt(0, MAX_DECK);
@@ -55,8 +62,6 @@ int main(){
 
         memcpy(&testG, &G, sizeof(struct gameState));
 
-        thisPlayer = inputInt(0, 1);
-        nextPlayer = inputInt(0, 1);
         tributeCardEffect(j, &testG, &tributeRevealedCards, thisPlayer, nextPlayer);
     }
 
