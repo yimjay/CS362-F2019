@@ -44,6 +44,9 @@ int main(){
 
         //initialize gameState
         initializeGame(numPlayers, k, seed, &G);
+        G.deckCount[numPlayers] = floor(Random() * MAX_DECK);
+        G.discardCount[numPlayers] = floor(Random() * MAX_DECK);
+        G.handCount[numPlayers] = floor(Random() * MAX_HAND);
 
         memcpy(&testG, &G, sizeof(struct gameState));
 
