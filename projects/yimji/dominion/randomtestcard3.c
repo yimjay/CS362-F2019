@@ -24,7 +24,7 @@ int inputInt(int min, int max){
 
 int main(){
     srand(time(NULL));
-    int numPlayers, thisPlayer;
+    int numPlayers, thisPlayer, nextPlayer;
     /*int newCards = 0;
     int discarded = 0;
     int extraCoins = 0;
