@@ -42,14 +42,14 @@ int main(){
         thisPlayer = 0;
         nextPlayer = 1;
 
-        G.deckCount[thisPlayer] = inputInt(0, MAX_DECK);
-        G.discardCount[thisPlayer] = inputInt(0, MAX_DECK);
-        G.handCount[thisPlayer] = inputInt(0, MAX_HAND);
-        G.deckCount[nextPlayer] = inputInt(0, MAX_DECK);
-        G.discardCount[nextPlayer] = inputInt(0, MAX_DECK);
-        G.handCount[nextPlayer] = inputInt(0, MAX_HAND);
-        G.supplyCount[estate] = inputInt(0, MAX_DECK);
-        int tributeRevealedCards[2];
+        //G.deckCount[thisPlayer] = inputInt(0, MAX_DECK);
+        //G.discardCount[thisPlayer] = inputInt(0, MAX_DECK);
+        //G.handCount[thisPlayer] = inputInt(0, MAX_HAND);
+        //G.deckCount[nextPlayer] = inputInt(0, MAX_DECK);
+        //G.discardCount[nextPlayer] = inputInt(0, MAX_DECK);
+        //G.handCount[nextPlayer] = inputInt(0, MAX_HAND);
+        //G.supplyCount[estate] = inputInt(0, MAX_DECK);
+        //int tributeRevealedCards[2];
         //tributeRevealedCards[0] = inputInt(0, MAX_DECK);
         //tributeRevealedCards[1] = inputInt(0, MAX_DECK);
 
