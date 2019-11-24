@@ -1177,6 +1177,8 @@ int mineCard(int currentPlayer, int choiceToTrashPos, int choiceCardToGain, stru
 }
 
 int tributeCard(int currentPlayer, int nextPlayer, struct gameState *state){
+    int tributeRevealedCards[2] = {-1, -1};
+	int i;
     if ((state->discardCount[nextPlayer] + state->deckCount[nextPlayer]) <= 1) {
         if (state->deckCount[nextPlayer] > 0) {
             tributeRevealedCards[0] = state->deck[nextPlayer][state->deckCount[nextPlayer]-1];
