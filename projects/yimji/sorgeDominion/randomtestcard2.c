@@ -3,6 +3,7 @@
 ** CS 362 Software Engineering II
 ** Assignment 5
 ** Description: This random test tests the refactored minion card from teammate Emily Sorg
+*/
 
 #include "dominion.h"
 #include "dominion_helpers.h"
