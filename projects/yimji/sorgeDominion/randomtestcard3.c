@@ -2,8 +2,8 @@
 /*
 ** Name: Ji Soo Yim
 ** CS 362 Software Engineering II
-** Assignment 4
-** Description: This random test tests the refactored tribute card
+** Assignment 5
+** Description: This random test tests the refactored tribute card from teammate Emily Sorg
 */
 
 #include "dominion.h"
@@ -55,7 +55,7 @@ int main(){
 
         memcpy(&testG, &G, sizeof(struct gameState));
 
-        tributeCardEffect(j, &testG, &tributeRevealedCards, thisPlayer, nextPlayer);
+        tributeCard(thisPlayer, nextPlayer, &testG);
     }
 
     return 0;

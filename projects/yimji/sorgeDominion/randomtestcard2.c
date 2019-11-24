@@ -1,9 +1,8 @@
 /*
 ** Name: Ji Soo Yim
 ** CS 362 Software Engineering II
-** Assignment 4
-** Description: This random test tests the refactored minion card
-*/
+** Assignment 5
+** Description: This random test tests the refactored minion card from teammate Emily Sorg
 
 #include "dominion.h"
 #include "dominion_helpers.h"
@@ -52,7 +51,7 @@ int main(){
 
         memcpy(&testG, &G, sizeof(struct gameState));
 
-        minionCardEffect(m, j, choice1, choice2, &testG, handpos, thisPlayer);
+        minionCard(thisPlayer, choice1, choice2, &testG, handpos);
     }
 
     return 0;

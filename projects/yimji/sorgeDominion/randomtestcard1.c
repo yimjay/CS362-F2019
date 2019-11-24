@@ -1,8 +1,8 @@
 /*
 ** Name: Ji Soo Yim
 ** CS 362 Software Engineering II
-** Assignment 4
-** Description: This random test tests the refactored baron card
+** Assignment 5
+** Description: This random test tests the refactored baron card from teammate Emily Sorg
 */
 
 #include "dominion.h"
@@ -44,10 +44,10 @@ int main(){
 
         thisPlayer = inputInt(0, 1);
         choice1 = inputInt(0, 2);
-        baronCardEffect(choice1, &testG, thisPlayer);
+        baronCard(choice1, &testG, thisPlayer);
 
         testG.hand[thisPlayer][numPlayers] = estate;
-        baronCardEffect(choice1, &testG, thisPlayer);
+        baronCard(choice1, &testG, thisPlayer);
     }
 
     return 0;

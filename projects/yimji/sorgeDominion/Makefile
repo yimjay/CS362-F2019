@@ -41,16 +41,37 @@ unittest4: unittest4.c dominion.o rngs.o
 unittest5: unittest5.c dominion.o rngs.o
 	gcc -o unittest5 -g unittest5.c dominion.o rngs.o $(CFLAGS)
 
-unittestresults: unittest1 unittest2 unittest3 unittest4 unittest5
-	./unittest1 >> unittestresults.out
-	./unittest2 >> unittestresults.out
-	./unittest3 >> unittestresults.out
-	./unittest4 >> unittestresults.out
-	./unittest5 >> unittestresults.out
-	gcov -b -f dominion.c >> unittestresults.out
-	cat dominion.c.gcov >> unittestresults.out
+#unittestresults: unittest1 unittest2 unittest3 unittest4 unittest5
+#	./unittest1 >> unittestresults.out
+#	./unittest2 >> unittestresults.out
+#	./unittest3 >> unittestresults.out
+#	./unittest4 >> unittestresults.out
+#	./unittest5 >> unittestresults.out
+	#gcov -b -f dominion.c >> unittestresults.out
+	#cat dominion.c.gcov >> unittestresults.out
+
+randomtest1: randomtestcard1.c dominion.o rngs.o
+	gcc -o randomtest1 -g randomtestcard1.c dominion.o rngs.o $(CFLAGS)
+
+randomtest2: randomtestcard2.c dominion.o rngs.o
+	gcc -o randomtest2 -g randomtestcard2.c dominion.o rngs.o $(CFLAGS)
+
+randomtest3: randomtestcard3.c dominion.o rngs.o
+	gcc -o randomtest3 -g randomtestcard3.c dominion.o rngs.o $(CFLAGS)
+
+test: unittest1 unittest2 unittest3 unittest4 unittest5 randomtest2 randomtest3
+	./unittest1 >> test.out
+	./unittest2 >> test.out
+	./unittest3 >> test.out
+	./unittest4 >> test.out
+	./unittest5 >> test.out
+	./randomtest1 >> test.out
+	./randomtest2 >> test.out
+	./randomtest3 >> test.out
+	gcov -b -f dominion.c >> test.out
+	cat dominion.c.gcov >> test.out
 
 all: playdom player
 
 clean:
-	rm -f *.o playdom.exe playdom player player.exe  *.gcov *.gcda *.gcno *.so *.out testDrawCard testDrawCard.exe unittest1 unittest2 unittest3 unittest4 unittest5 dominion.gcda rngs.gcda
+	rm -f *.o playdom.exe playdom player player.exe  *.gcov *.gcda *.gcno *.so *.out testDrawCard testDrawCard.exe unittest1 unittest2 unittest3 unittest4 unittest5 dominion.gcda rngs.gcda randomtest1 randomtest2 randomtest3 randomtestresults randomtestresults.out
