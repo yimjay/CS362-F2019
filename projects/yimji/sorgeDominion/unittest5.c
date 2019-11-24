@@ -17,13 +17,13 @@
 int main(){
     //set initial variables
     //adapted from cardtest4.c from "Testing for business rules" module
-    int newCards = 0;
-    int discarded = 1;
-    int extraCoins = 0;
-    int shuffledCards = 0;
-    int i, j , m;
-    int handpos = 0, choice1 = 0, choice2 = 0, choice3 = 0, bonus = 0;
-    int remove1, remove2;
+    //int newCards = 0;
+    //int discarded = 1;
+    //int extraCoins = 0;
+    //int shuffledCards = 0;
+    //int i, j , m;
+    int handpos = 0, choice1 = 0, choice2 = 0;
+    //int remove1, remove2;
     int seed = 1000;
     int numPlayers = 2;
     int thisPlayer = 0;

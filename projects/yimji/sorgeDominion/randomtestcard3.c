@@ -31,7 +31,7 @@ int main(){
 
     //printf("-------------------------------TESTING CARD %s-------------------------------\n", TESTCARD);
 
-    int i, j;
+    int i;
     for(i = 0; i < NUMTESTS; i++){
         //printf("-------------------------------Test number %d\n", i);
         //numPlayers = inputInt(1, 2);

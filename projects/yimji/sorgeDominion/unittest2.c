@@ -16,8 +16,8 @@
 int main(){
     //set initial variables
     //adapted from cardtest4.c from "Testing for business rules" module
-    int i, j , m;
-    int handpos = 1, choice1 = 0, choice2 = 0, choice3 = 0, bonus = 0;
+    //int i, j , m;
+    int handpos = 1, choice1 = 0, choice2 = 0;
     int seed = 1000;
     int numPlayers = 2;
     int thisPlayer = 0;
