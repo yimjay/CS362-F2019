@@ -15,7 +15,7 @@
 #include <time.h>
 
 #define TESTCARD "TRIBUTE"
-#define NUMTESTS 1000000
+#define NUMTESTS 100
 
 int inputInt(int min, int max){
     int randomInt = (rand() % (max - min)) + min;
