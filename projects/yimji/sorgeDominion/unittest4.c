@@ -1,8 +1,8 @@
 /*
 ** Name: Ji Soo Yim
 ** CS 362 Software Engineering II
-** Assignment 3
-** Description: This unit test tests the refactored tribute card
+** Assignment 5
+** Description: This unit test tests the refactored tribute card from teammate Emily Sorg
 */
 
 #include "dominion.h"
@@ -38,7 +38,7 @@ int main(){
     //copy current gameState to a test gameState
     memcpy(&testG, &G, sizeof(struct gameState));
     int tributeRevealedCards[2] = {copper, copper};
-    tributeCardEffect(i, &testG, &tributeRevealedCards, thisPlayer, nextPlayer);
+    tributeCard(thisPlayer, nextPlayer, &testG);
 
     printf("Test 1: For each differently named Treasure card (cooper, copper), +2 coins\n");
     if(testG.coins == G.coins + 2){
@@ -51,7 +51,7 @@ int main(){
     memcpy(&testG, &G, sizeof(struct gameState));
     tributeRevealedCards[0] = copper;
     tributeRevealedCards[1] = silver;
-    tributeCardEffect(i, &testG, &tributeRevealedCards, thisPlayer, nextPlayer);
+    tributeCard(thisPlayer, nextPlayer, &testG);
 
     printf("Test 2: For each differently named Treasure card (copper, silver), +2 coins\n");
     if(testG.coins == G.coins + 4){
@@ -64,7 +64,7 @@ int main(){
     memcpy(&testG, &G, sizeof(struct gameState));
     tributeRevealedCards[0] = estate;
     tributeRevealedCards[1] = duchy;
-    tributeCardEffect(i, &testG, &tributeRevealedCards, thisPlayer, nextPlayer);
+    tributeCard(thisPlayer, nextPlayer, &testG);
 
     printf("Test 3: For each differently named Victory card (estate, duchy), +2 cards\n");
     if(testG.handCount == G.handCount + 4){
@@ -77,7 +77,7 @@ int main(){
     memcpy(&testG, &G, sizeof(struct gameState));
     tributeRevealedCards[0] = province;
     tributeRevealedCards[1] = gardens;
-    tributeCardEffect(i, &testG, &tributeRevealedCards, thisPlayer, nextPlayer);
+    tributeCard(thisPlayer, nextPlayer, &testG);
 
     printf("Test 4: For each differently named Victory card (province, gardens), +2 cards\n");
     if(testG.handCount == G.handCount + 4){
@@ -90,7 +90,7 @@ int main(){
     memcpy(&testG, &G, sizeof(struct gameState));
     tributeRevealedCards[0] = great_hall;
     tributeRevealedCards[1] = great_hall;
-    tributeCardEffect(i, &testG, &tributeRevealedCards, thisPlayer, nextPlayer);
+    tributeCard(thisPlayer, nextPlayer, &testG);
 
     printf("Test 5: For each differently named Victory card (great_hall, great_hall), +2 cards\n");
     if(testG.handCount == G.handCount + 2){
@@ -103,7 +103,7 @@ int main(){
     memcpy(&testG, &G, sizeof(struct gameState));
     tributeRevealedCards[0] = baron;
     tributeRevealedCards[1] = minion;
-    tributeCardEffect(i, &testG, &tributeRevealedCards, thisPlayer, nextPlayer);
+    tributeCard(thisPlayer, nextPlayer, &testG);
 
     printf("Test 6: For each differently named Action card (baron, minion), +2 actions\n");
     if(testG.numActions == G.numActions + 4){
@@ -116,7 +116,7 @@ int main(){
     memcpy(&testG, &G, sizeof(struct gameState));
     tributeRevealedCards[0] = baron;
     tributeRevealedCards[1] = baron;
-    tributeCardEffect(i, &testG, &tributeRevealedCards, thisPlayer, nextPlayer);
+    tributeCard(thisPlayer, nextPlayer, &testG);
 
     printf("Test 7: For each differently named Action card (baron, baron), +2 actions\n");
     if(testG.numActions == G.numActions + 2){
@@ -129,7 +129,7 @@ int main(){
     memcpy(&testG, &G, sizeof(struct gameState));
     tributeRevealedCards[0] = copper;
     tributeRevealedCards[1] = baron;
-    tributeCardEffect(i, &testG, &tributeRevealedCards, thisPlayer, nextPlayer);
+    tributeCard(thisPlayer, nextPlayer, &testG);
 
     printf("Test 8: For each differently named Treasure and Action card (copper, baron), +2 coins, +2 actions\n");
     if((testG.numActions == G.numActions + 2) && (testG.coins == G.coins + 2)){

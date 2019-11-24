@@ -1,8 +1,8 @@
 /*
 ** Name: Ji Soo Yim
 ** CS 362 Software Engineering II
-** Assignment 3
-** Description: This unit test tests the refactored baron card
+** Assignment 5
+** Description: This unit test tests the refactored baron card from teammate Emily Sorg
 */
 
 #include "dominion.h"
@@ -39,7 +39,7 @@ int main(){
 
     //discard Estate card to gain 4 coins
     choice1 = 1;
-    baronCardEffect(choice1, &testG, thisPlayer);
+    baronCard(choice1, &testG, thisPlayer);
 
     printf("Test 1: 4 coins were gained after discarding an Estate\n");
     if(testG.coins == G.coins + 4){
@@ -65,7 +65,7 @@ int main(){
     //play baron again with no estate card
     choice1 = 0;
     k[8] = sea_hag;
-    baronCardEffect(choice1, &testG, thisPlayer);
+    baronCard(choice1, &testG, thisPlayer);
     printf("Test 4: Gain an estate card if no Estates in hand\n");
     if(testG.handCount[0] == 10){
         printf("TEST PASSED\n");
@@ -77,7 +77,7 @@ int main(){
     memcpy(&testG, &G, sizeof(struct gameState));
 
     //gain Estate card
-    baronCardEffect(choice1, &testG, thisPlayer);
+    baronCard(choice1, &testG, thisPlayer);
     int oldSupplyEstate = testG.supplyCount[estate];
 
     printf("Test 5: Supply pile decreased after gaining an Estate\n");

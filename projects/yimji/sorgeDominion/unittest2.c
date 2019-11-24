@@ -1,8 +1,8 @@
 /*
 ** Name: Ji Soo Yim
 ** CS 362 Software Engineering II
-** Assignment 3
-** Description: This unit test tests the refactored minion card
+** Assignment 5
+** Description: This unit test tests the refactored minion card from teammate Emily Sorg
 */
 
 #include "dominion.h"
@@ -37,7 +37,7 @@ int main(){
     testG.handCount[0] = 10;
     testG.handCount[1] = 10;
 
-    minionCardEffect(i, j, choice1, choice2, &testG, handpos, thisPlayer);
+    minionCard(thisPlayer, choice1, choice2, &testG, handPos);
 
     printf("Test 1: 2 coins were gained\n");
     if(testG.coins == G.coins + 2){
@@ -66,7 +66,7 @@ int main(){
     //discard hand and gain 4 cards
     choice1 = 0;
     choice2 = 1;
-    minionCardEffect(i, j, choice1, choice2, &testG, handpos, thisPlayer);
+    minionCard(thisPlayer, choice1, choice2, &testG, handPos);
 
     printf("Test 3: 4 cards in current hand\n");
     if(testG.handCount[0] == 4){
@@ -107,7 +107,7 @@ int main(){
     memcpy(&testG, &G, sizeof(struct gameState));
     testG.handCount[1] = 3;
     thisPlayer = 1;
-    minionCardEffect(i, j, choice1, choice2, &testG, handpos, thisPlayer);
+    minionCard(thisPlayer, choice1, choice2, &testG, handPos);
 
     printf("Test 8: Next player does not redraw if they have less than 5 cards in hand\n");
     if(testG.handCount[1] == 3){

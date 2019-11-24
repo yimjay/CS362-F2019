@@ -1,8 +1,8 @@
 /*
 ** Name: Ji Soo Yim
 ** CS 362 Software Engineering II
-** Assignment 3
-** Description: This unit test tests the refactored ambassador card
+** Assignment 5
+** Description: This unit test tests the refactored ambassador card from teammate Emily Sorg
 */
 
 #include "dominion.h"
@@ -41,7 +41,7 @@ int main(){
     choice1 = 1;
     choice2 = 2;
 
-    ambassadorCardEffect(i, j, choice1, choice2, &testG, handpos, thisPlayer);
+    ambassadorCard(thisPlayer, choice1, choice2, &testG, handpos);
 
     printf("Test 1: 2 choice1 cards were discarded\n");
     if(testG.supplyCount[testG.hand[thisPlayer][choice1]] == G.supplyCount[G.hand[thisPlayer][choice1]] + choice2){
@@ -56,7 +56,7 @@ int main(){
     //test 1 choice1 cards were discarded
     choice2 = 1;
 
-    ambassadorCardEffect(i, j, choice1, choice2, &testG, handpos, thisPlayer);
+    ambassadorCard(thisPlayer, choice1, choice2, &testG, handpos);
 
     printf("Test 2: 1 choice1 cards were discarded\n");
     if(testG.supplyCount[testG.hand[thisPlayer][choice1]] == G.supplyCount[G.hand[thisPlayer][choice1]] + choice2){
@@ -72,7 +72,7 @@ int main(){
     choice2 = 3;
 
     printf("Test 3: If choice2 is more than 2, return error\n");
-    if(ambassadorCardEffect(i, j, choice1, choice2, &testG, handpos, thisPlayer) == -1){
+    if(ambassadorCard(thisPlayer, choice1, choice2, &testG, handpos) == -1){
         printf("TEST PASSED\n");
     }else{
         printf("TEST FAILED\n");
@@ -82,7 +82,7 @@ int main(){
     choice2 = -1;
 
     printf("Test 4: If choice2 is less than zero, return error\n");
-    if(ambassadorCardEffect(i, j, choice1, choice2, &testG, handpos, thisPlayer) == -1){
+    if(ambassadorCard(thisPlayer, choice1, choice2, &testG, handpos) == -1){
         printf("TEST PASSED\n");
     }else{
         printf("TEST FAILED\n");
@@ -92,7 +92,7 @@ int main(){
     choice1 = handpos;
 
     printf("Test 5: If choice1 is equal to handPos, return error\n");
-    if(ambassadorCardEffect(i, j, choice1, choice2, &testG, handpos, thisPlayer) == -1){
+    if(ambassadorCard(thisPlayer, choice1, choice2, &testG, handpos) == -1){
         printf("TEST PASSED\n");
     }else{
         printf("TEST FAILED\n");

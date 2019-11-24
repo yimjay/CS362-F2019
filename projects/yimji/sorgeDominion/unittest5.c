@@ -2,8 +2,8 @@
 /*
 ** Name: Ji Soo Yim
 ** CS 362 Software Engineering II
-** Assignment 3
-** Description: This unit test tests the refactored mine card
+** Assignment 5
+** Description: This unit test tests the refactored mine card from teammate Emily Sorg
 */
 
 #include "dominion.h"
@@ -40,7 +40,7 @@ int main(){
     choice1 = estate;
 
     printf("Test 1: Give error when choosing to trash a non-Treasure card\n");
-    if(mineCardEffect(i, j, choice1, choice2, &testG, handpos, thisPlayer) == -1){
+    if(mineCard(thisPlayer, choice1, choice2, &testG, handpos) == -1){
         printf("TEST PASSED\n");
     }else{
         printf("TEST FAILED\n");
@@ -51,7 +51,7 @@ int main(){
     choice2 = gold;
 
     printf("Test 2: Give error when attempting to buy a treasure worth more than 3 more than the trashed one\n");
-    if(mineCardEffect(i, j, choice1, choice2, &testG, handpos, thisPlayer) == -1){
+    if(mineCard(thisPlayer, choice1, choice2, &testG, handpos) == -1){
         printf("TEST PASSED\n");
     }else{
         printf("TEST FAILED\n");
@@ -60,7 +60,7 @@ int main(){
     memcpy(&testG, &G, sizeof(struct gameState));
     choice1 = copper;
     choice2 = silver;
-    mineCardEffect(i, j, choice1, choice2, &testG, handpos, thisPlayer);
+    mineCard(thisPlayer, choice1, choice2, &testG, handpos);
     printf("Test 3: Trash Copper to gain Silver. Hand counts should remain unchanged\n");
     if(testG.handCount[0] == G.handCount[0]){
         printf("TEST PASSED\n");
