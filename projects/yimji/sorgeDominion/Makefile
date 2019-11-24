@@ -59,7 +59,7 @@ randomtest2: randomtestcard2.c dominion.o rngs.o
 randomtest3: randomtestcard3.c dominion.o rngs.o
 	gcc -o randomtest3 -g randomtestcard3.c dominion.o rngs.o $(CFLAGS)
 
-test: unittest1 unittest2 unittest3 unittest4 unittest5 randomtest2 randomtest3
+test: unittest1 unittest2 unittest3 unittest4 unittest5 randomtest1 randomtest2 randomtest3
 	./unittest1 >> test.out
 	./unittest2 >> test.out
 	./unittest3 >> test.out
