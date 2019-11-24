@@ -1211,7 +1211,7 @@ int tributeCard(int currentPlayer, int nextPlayer, struct gameState *state){
 		}
 		tributeRevealedCards[0] = state->deck[nextPlayer][state->deckCount[nextPlayer]-1];
 		state->deck[nextPlayer][state->deckCount[nextPlayer]--] = -1;
-		//state->deckCount[nextPlayer]--;
+		state->deckCount[nextPlayer]--;
 		tributeRevealedCards[1] = state->deck[nextPlayer][state->deckCount[nextPlayer]-1];
 		state->deck[nextPlayer][state->deckCount[nextPlayer]--] = -1;
 		state->deckCount[nextPlayer]--;
