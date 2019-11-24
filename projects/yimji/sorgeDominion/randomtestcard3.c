@@ -34,7 +34,8 @@ int main(){
     int i, j;
     for(i = 0; i < NUMTESTS; i++){
         //printf("-------------------------------Test number %d\n", i);
-        numPlayers = inputInt(1, 2);
+        //numPlayers = inputInt(1, 2);
+        numPlayers = 2;
 
         //initialize gameState
         initializeGame(numPlayers, k, seed, &G);
